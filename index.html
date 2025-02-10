@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandas Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .facts-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fact {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pandas Facts</h1>
+        <button id="show-facts">Show Facts</button>
+        <div id="facts-container" class="facts-container"></div>
+    </div>
+    <script>
+        const facts = [
+            {
+                "fact_id": 1,
+                "fact": "Pandas is a Python library used for data manipulation and analysis."
+            },
+            {
+                "fact_id": 2,
+                "fact": "It provides data structures like DataFrames and Series for efficient data handling."
+            },
+            {
+                "fact_id": 3,
+                "fact": "Pandas is built on top of NumPy, another popular Python library for numerical computing."
+            },
+            {
+                "fact_id": 4,
+                "fact": "One of the key features of Pandas is its ability to handle missing data gracefully."
+            },
+            {
+                "fact_id": 5,
+                "fact": "Pandas allows for easy data alignment and indexing."
+            },
+            {
+                "fact_id": 6,
+                "fact": "DataFrames in Pandas can be created from various sources, including CSV files, Excel spreadsheets, and SQL databases."
+            },
+            {
+                "fact_id": 7,
+                "fact": "Pandas offers powerful tools for data cleaning, transformation, and aggregation."
+            },
+            {
+                "fact_id": 8,
+                "fact": "The 'groupby' function in Pandas enables splitting data into groups for analysis."
+            },
+            {
+                "fact_id": 9,
+                "fact": "Pandas is widely used in data science, machine learning, and data analysis workflows."
+            },
+            {
+                "fact_id": 10,
+                "fact": "The name 'Pandas' is derived from 'Panel Data', an econometrics term for multidimensional structured datasets."
+            }
+        ];
+
+        document.getElementById('show-facts').addEventListener('click', () => {
+            const factsContainer = document.getElementById('facts-container');
+            factsContainer.innerHTML = ''; // Clear previous facts
+            facts.forEach((fact, index) => {
+                const factDiv = document.createElement('div');
+                factDiv.className = 'fact';
+                factDiv.textContent = fact.fact;
+                factDiv.style.animationDelay = `${index * 0.1}s`; // Staggered animation
+                factsContainer.appendChild(factDiv);
+            });
+        });
+    </script>
+</body>
+</html>
